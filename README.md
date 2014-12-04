@@ -1,5 +1,5 @@
 # PinPin
 
-Learning Rails yo.
+Learning Rails (and Git) yo.
 
 by [Matt Coleman](http://mtcl.mn)
