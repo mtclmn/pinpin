@@ -12,7 +12,7 @@
 	<%= image_tag @pin.image.url(:large) %>
 	<ul class="list-group">
 		<li class="list-group-item"><strong><%= @pin.description %></strong></li>
-		<li class="list-group-item">From <strong><%= @pin.user.email if @pin.user %></strong> at <strong><%= @pin.created_at %></strong></li>
+		<li class="list-group-item">From <strong><%= @pin.user.name if @pin.user %></strong> at <strong><%= @pin.created_at %></strong></li>
 	</ul>
 </div>
 
