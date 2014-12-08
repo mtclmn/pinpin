@@ -1,10 +1,16 @@
 <p id="notice"><%= notice %></p>
 
-<%= image_tag @pin.image.url(:large) %>
-<p>
-  <strong>Description:</strong>
-  <%= @pin.description %>
-</p>
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<h5>Pin #<%= @pin.id if @pin.id %> <span class="pull-right">Share</span></h5>
+	</div>
+	<%= image_tag @pin.image.url(:large) %>
+	<ul class="list-group">
+		<li class="list-group-item"><strong><%= @pin.description %></strong></li>
+		<li class="list-group-item">From <strong><%= @pin.user.email if @pin.user %></strong> at <strong><%= @pin.created_at %></strong></li>
+	</ul>
+
+</div>
 
 <% if @pin.user == current_user %>
 	<%= link_to 'Edit', edit_pin_path(@pin) %> |

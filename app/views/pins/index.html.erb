@@ -1,30 +1,28 @@
 <h1>Listing pins</h1>
 
-<table>
-  <thead>
-    <tr>
-	  <th></th>
-      <th>Description</th>
-      <th>UserID</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @pins.each do |pin| %>
-      <tr>
-	  	<td><%= image_tag pin.image.url(:medium) if pin.image %></td>
-        <td><%= pin.description %></td>
-        <td><%= pin.user.email if pin.user %></td>
-        <td><%= link_to 'Show', pin %></td>
-	        <% if pin.user == current_user %>
-	        <td><%= link_to 'Edit', edit_pin_path(pin) %></td>
-	        <td><%= link_to 'Destroy', pin, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div id="pins">
+  <div class="grid-sizer"></div>
+  <% @pins.each do |pin| %>
+    <div class="panel box">
+      <%= link_to pin_path(pin) do %>
+      <%= image_tag pin.image.url(:medium) %>
+      <% end %>
+	  <!-- List group -->
+	  <ul class="list-group">
+	    <li class="list-group-item"><%= pin.description %></li>
+	    <li class="list-group-item"><%= pin.user.email if pin.user %></li>
+	  </ul>
+      <div class="panel-footer">
+      <%= link_to 'Show', pin_path(pin), class: "btn btn-default btn-sm" %>
+      <% if pin.user == current_user %>
+        <%= link_to 'Edit', edit_pin_path(pin), class: "btn btn-default btn-sm" %>
+        <%= link_to 'Destroy', pin, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default btn-sm" %>
+      <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>
 
 <br>
 <% if user_signed_in? %>

@@ -1,3 +1,31 @@
 // Place all the styles related to the pins controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+html * {
+	box-sizing: border-box;
+}
+
+#pins {
+  margin: 0 auto;
+}
+
+.grid-sizer {
+	width: 25%;
+}
+
+.box {
+  margin: 5px;
+  width: 25%;
+}
+
+.box img {
+  width: 100%;
+  height: auto;
+}
+
+.panel img {
+	margin: 0 auto;
+	max-width: 100%;
+	height: auto;
+}
