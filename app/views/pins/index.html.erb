@@ -1,5 +1,4 @@
-<h1>Listing pins</h1>
-
+<%= render 'pages/home' unless user_signed_in? %>
 
 <div id="pins">
   <div class="grid-sizer"></div>
@@ -14,10 +13,14 @@
 	    <li class="list-group-item"><%= pin.user.email if pin.user %></li>
 	  </ul>
       <div class="panel-footer">
-      <%= link_to 'Show', pin_path(pin), class: "btn btn-default btn-sm" %>
+      <!-- <%= link_to 'Show', pin_path(pin), class: "btn btn-default btn-sm" %> -->
       <% if pin.user == current_user %>
-        <%= link_to 'Edit', edit_pin_path(pin), class: "btn btn-default btn-sm" %>
-        <%= link_to 'Destroy', pin, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default btn-sm" %>
+		<%= link_to( edit_pin_path(pin), class:"btn btn-default btn-sm" ) do %>
+		  Edit
+		<% end %>
+		<%= link_to pin, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-default btn-sm pull-right" do %>
+		  <span class="glyphicon glyphicon-trash"></span>
+		<% end %>
       <% end %>
       </div>
     </div>

@@ -1,0 +1,14 @@
+<% if user_signed_in? %>
+
+	<%= link_to "Add a Pin", new_pin_path, class: "btn btn-primary" %>
+
+<% else %>
+
+	<div class="jumbotron text-center">
+		<h1>PinPin</h1>
+		<%= link_to "Sign up", new_user_registration_path, class: "btn btn-primary" %>
+		<%= link_to "Login", new_user_session_path, class: "btn btn-default" %>
+	</div>
+
+<% end %>
+
